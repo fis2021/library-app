@@ -1,2 +1,8 @@
-package lapp.exceptions;public class AccountDoesNotExistController {
-}
+package lapp.exceptions;
+
+public class AccountDoesNotExistException extends Exception {
+
+        public AccountDoesNotExistException() {
+            super("This account does not exist!");
+        }
+    }

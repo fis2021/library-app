@@ -1,4 +1,4 @@
-package org;
+package lapp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import lapp.services.FileSystemService;
+import lapp.services.UserService;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 
 public class Main extends Application{
@@ -19,6 +24,8 @@ public class Main extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
+        initDirectory();
+        UserService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Main.fxml"));
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
@@ -28,11 +35,9 @@ public class Main extends Application{
         stage.show();
     }
 
-    /*@Override
-    public void handle(ActionEvent event) {
-        if(event.getSource()==button){
-            System.out.println("You clicked my ohhlala..."); //printed in terminal
-        }
-
-    }*/
+    private void initDirectory() {
+        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
+        if (!Files.exists(applicationHomePath))
+            applicationHomePath.toFile().mkdirs();
+    }
 }

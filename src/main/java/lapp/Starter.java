@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class Controller implements Initializable{
+public class Starter implements Initializable{
 
     @FXML
     private VBox vbox;
@@ -38,7 +38,7 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    private void open_signin(ActionEvent event){
+    private void open_signIn(ActionEvent event){
         TranslateTransition t = new TranslateTransition(Duration.seconds(1), vbox);
         t.setToX(vbox.getLayoutX()*20);
         t.play();
@@ -54,7 +54,7 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    private void open_signup(ActionEvent event){
+    private void open_signUp(ActionEvent event){
         TranslateTransition t = new TranslateTransition(Duration.seconds(1), vbox);
         t.setToX(0);
         t.play();
