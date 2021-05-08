@@ -3,6 +3,7 @@ lapp\Main.class
 lapp\services\FileSystemService.class
 lapp\exceptions\WrongPasswordException.class
 lapp\exceptions\AccountDoesNotExistException.class
+lapp\controllers\HomepageClient.class
 lapp\controllers\CreateAccountController.class
 lapp\Starter.class
 lapp\model\User.class

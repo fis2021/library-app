@@ -37,4 +37,8 @@
     -fx-background-radius: 5px;
     -fx-text-fill: whitesmoke;
 }
+.error-msg{
+    -fx-text-fill: red;
+    -fx-background-color: transparent;
+}
 

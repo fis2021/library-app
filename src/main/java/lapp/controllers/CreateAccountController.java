@@ -6,9 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lapp.exceptions.ShortPasswordException;
 import lapp.exceptions.UsernameAlreadyExistsException;
@@ -29,7 +29,7 @@ public class CreateAccountController {
     @FXML
     private TextField phoneField;
     @FXML
-    private Text registrationMessage;
+    private Label registrationMessage;
 
     @FXML
     public void handleRegisterAction() {

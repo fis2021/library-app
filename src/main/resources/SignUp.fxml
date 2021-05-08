@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="purple-panel" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="purple-panel" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapp.controllers.CreateAccountController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="90.0" text="Sign Up" textFill="#6f3e96" wrapText="true">
             <VBox.margin>
@@ -22,7 +22,7 @@
         </Label>
         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="480.0">
             <children>
-                <TextField promptText="Full Name" styleClass="tf_box" HBox.hgrow="ALWAYS">
+                <TextField fx:id="nameField" promptText="Full Name" styleClass="tf_box" HBox.hgrow="ALWAYS">
                     <font>
                         <Font name="Book Antiqua" size="13.0" />
                     </font>
@@ -35,7 +35,7 @@
         </HBox>
         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="480.0">
             <children>
-                <TextField promptText="e-mail" styleClass="tf_box" HBox.hgrow="ALWAYS">
+                <TextField fx:id="emailField" promptText="e-mail" styleClass="tf_box" HBox.hgrow="ALWAYS">
                     <font>
                         <Font name="Book Antiqua" size="13.0" />
                     </font>
@@ -48,7 +48,7 @@
         </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="480.0">
          <children>
-            <TextField promptText="Phone number" styleClass="tf_box" HBox.hgrow="ALWAYS">
+            <TextField fx:id="phoneField" promptText="Phone number" styleClass="tf_box" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Book Antiqua" size="13.0" />
                </font>
@@ -61,7 +61,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="480.0">
          <children>
-            <TextField promptText="Username" styleClass="tf_box" HBox.hgrow="ALWAYS">
+            <TextField fx:id="usernameField" promptText="Username" styleClass="tf_box" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Book Antiqua" size="13.0" />
                </font>
@@ -74,7 +74,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="480.0">
          <children>
-            <PasswordField promptText="Password" styleClass="tf_box" HBox.hgrow="ALWAYS">
+            <PasswordField fx:id="passwordField" promptText="Password" styleClass="tf_box" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Book Antiqua" size="13.0" />
                </font>
@@ -85,7 +85,7 @@
             <Insets left="15.0" right="15.0" top="10.0" />
          </VBox.margin>
       </HBox>
-      <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="140.0" styleClass="purple-btn" text="Create Account" textFill="WHITE">
+      <Button mnemonicParsing="false" onAction="#handleRegisterAction" prefHeight="37.0" prefWidth="140.0" styleClass="purple-btn" text="Create Account" textFill="WHITE">
          <font>
             <Font name="Book Antiqua" size="15.0" />
          </font>
@@ -93,5 +93,16 @@
             <Insets left="170.0" top="40.0" />
          </VBox.margin>
       </Button>
+      <Label fx:id="registrationMessage" layoutX="5.0" prefHeight="23.0" prefWidth="196.0" styleClass="error-msg" VBox.vgrow="ALWAYS">
+         <font>
+            <Font name="Book Antiqua" size="13.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+         <VBox.margin>
+            <Insets left="15.0" top="5.0" />
+         </VBox.margin>
+      </Label>
     </children>
 </VBox>
