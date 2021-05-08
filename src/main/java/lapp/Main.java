@@ -16,7 +16,6 @@ import java.nio.file.Path;
 
 public class Main extends Application{
 
-    //Button button;
 
     public static void main(String[] args){
         launch(args);

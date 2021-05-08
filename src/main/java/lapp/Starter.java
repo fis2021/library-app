@@ -20,7 +20,6 @@ public class Starter implements Initializable{
     private VBox vbox;
     private Parent fxml;
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         TranslateTransition t = new TranslateTransition(Duration.seconds(1), vbox);
@@ -67,5 +66,10 @@ public class Starter implements Initializable{
 
             }
         });
+    }
+
+    @FXML
+    private void close_window(ActionEvent event){
+        System.exit(0);
     }
 }
