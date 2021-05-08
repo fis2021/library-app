@@ -74,7 +74,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.5</version>
                 <configuration>
-                    <mainClass>org.Main</mainClass>
+                    <mainClass>lapp.Main</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -90,7 +90,7 @@
                     <!--MainClass in manifest make an executable jar-->
                     <archive>
                         <manifest>
-                            <mainClass>org.Main</mainClass>
+                            <mainClass>lapp.Main</mainClass>
                         </manifest>
                     </archive>
                     <appendAssemblyId>false</appendAssemblyId>

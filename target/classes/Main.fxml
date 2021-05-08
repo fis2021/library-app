@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="parent" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.Controller">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" styleClass="parent" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapp.Starter">
    <children>
       <Pane layoutY="100.0" prefHeight="400.0" prefWidth="1000.0" styleClass="pane">
          <children>
@@ -16,7 +16,7 @@
                   <Font name="Book Antiqua Bold" size="20.0" />
                </font>
             </Label>
-            <Button layoutX="158.0" layoutY="160.0" mnemonicParsing="false" onAction="#open_signup" prefWidth="95.0" styleClass="trans-btn-white-border" text="Sign Up" textAlignment="CENTER" wrapText="true">
+            <Button layoutX="158.0" layoutY="160.0" mnemonicParsing="false" onAction="#open_signUp" prefWidth="95.0" styleClass="trans-btn-white-border" text="Sign Up" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Book Antiqua" size="14.773585319519043" />
                </font>
@@ -26,7 +26,7 @@
                   <Font name="Book Antiqua Bold" size="20.0" />
                </font>
             </Label>
-            <Button layoutX="722.0" layoutY="160.0" mnemonicParsing="false" onAction="#open_signin" prefWidth="95.0" styleClass="trans-btn-white-border" text="Sign In" textAlignment="CENTER" wrapText="true">
+            <Button layoutX="722.0" layoutY="160.0" mnemonicParsing="false" onAction="#open_signIn" prefWidth="95.0" styleClass="trans-btn-white-border" text="Sign In" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Book Antiqua" size="14.773585319519043" />
                </font>
