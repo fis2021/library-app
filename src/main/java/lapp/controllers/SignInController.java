@@ -36,7 +36,7 @@ public class SignInController {
             UserService.checkCredentials(usernameField.getText(), passwordField.getText());
             logInMessage.setText("Login successful!");
 
-            Parent homepageParent = load(getClass().getClassLoader().getResource("homepage.fxml"));
+            Parent homepageParent = load(getClass().getClassLoader().getResource("ListOfBooks.fxml"));
             Scene homepageScene = new Scene(homepageParent);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
