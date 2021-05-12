@@ -6,31 +6,44 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ListOfBooks implements Initializable {
     @FXML
     private Label label;
+
+    @FXML
+    TableView tableview;
+
+    ObservableList<Carti> data;
+
+
     @FXML private TextField filterField;
-    @FXML private TableView<Carti> tableview;
+    @FXML private TableView<Carti> tableView;
     @FXML private TableColumn<Carti, String> EmpTitlu;
     @FXML private TableColumn<Carti, String> empAutor;
     @FXML private TableColumn<Carti, String> empEditura;
 
+
     //observalble list to store data
     private final ObservableList<Carti> dataList = FXCollections.observableArrayList();
 
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        EmpTitlu.setCellValueFactory(new PropertyValueFactory<>("Titlu"));
-        empAutor.setCellValueFactory(new PropertyValueFactory<>("Autor"));
-        empEditura.setCellValueFactory(new PropertyValueFactory<>("Editura"));
+
+        TableColumn EmpTitlu=new TableColumn("Titlu");
+        TableColumn empAutor=new TableColumn("Nume autor");
+        TableColumn empEditura=new TableColumn("Editura");
+        TableColumn selectCol = new TableColumn("Select");
+
+        tableview.getColumns().addAll(EmpTitlu,empAutor,empEditura,selectCol);
+
+
 
         Carti c1=new Carti("Amintiri din copilarie","Ion Creanga","Teora");
         Carti c2=new Carti("Harap Alb","Ion Creanga","Paralela 45");
@@ -39,7 +52,27 @@ public class ListOfBooks implements Initializable {
 
         dataList.addAll(c1,c2,c3,c4);
 
-        // Wrap the ObservableList in a FilteredList (initially display all data).
+
+        EmpTitlu.setCellValueFactory(
+                new PropertyValueFactory<Carti,String>("titlu")
+        );
+        empAutor.setCellValueFactory(
+                new PropertyValueFactory<Carti,String>("autor")
+        );
+        empEditura.setCellValueFactory(
+                new PropertyValueFactory<Carti,String>("editura")
+        );
+
+        selectCol.setCellValueFactory(
+                new PropertyValueFactory<Carti,String>("select")
+        );
+
+        tableview.setItems(data);
+
+
+
+
+        //Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Carti> filteredData = new FilteredList<>(dataList, b -> true);
 
         // 2. Set the filter Predicate whenever the filter changes.
@@ -58,6 +91,8 @@ public class ListOfBooks implements Initializable {
                     return true; // Filter matches first name.
                 } else if (carti.getAutor().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                     return true; // Filter matches last name.
+                } else if (carti.getEditura().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true; // Filter matches last name.
                 }
                 else if (String.valueOf(carti.getEditura()).indexOf(lowerCaseFilter)!=-1)
                     return true;
@@ -75,6 +110,5 @@ public class ListOfBooks implements Initializable {
 
         // 5. Add sorted (and filtered) data to the table.
         tableview.setItems(sortedData);
-
     }
 }
