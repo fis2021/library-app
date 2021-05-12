@@ -1,4 +1,4 @@
-package lapp.services;
+package lapp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,15 +8,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-/**
- *
- * @author Cool IT Help
- */
-class JavaFXTableViewAddRows extends Application {
+public class AddRowOfBooks extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ListOfBooks.fxml"));
 
         Scene scene = new Scene(root);
         stage.initStyle(StageStyle.TRANSPARENT);
@@ -33,5 +29,6 @@ class JavaFXTableViewAddRows extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 
 }
