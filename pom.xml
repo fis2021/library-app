@@ -51,11 +51,16 @@
             <version>4.7.0-9.1.2</version>
         </dependency>
 
-        <!--dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.30</version>
-        </dependency-->
+        </dependency>
+
+
+
+
+
     </dependencies>
 
     <build>
