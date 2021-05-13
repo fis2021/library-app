@@ -1,6 +1,7 @@
-package lapp;
+package lapp.controllers;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 
 public class Carti {
@@ -8,13 +9,17 @@ public class Carti {
     private  final SimpleStringProperty Autor;
     private  final SimpleStringProperty Editura;
     private CheckBox select;
+    private Button button;
+    private CheckBox checkbox;
 
-    Carti(String titlu, String autor, String editura)
+    public Carti(String titlu, String autor, String editura)
     {
         this.Titlu = new SimpleStringProperty(titlu);
         this.Autor = new SimpleStringProperty(autor);
         this.Editura =  new SimpleStringProperty(editura);
         this.select=new CheckBox();
+        this.button=new Button();
+        this.checkbox=new CheckBox();
     }
 
     public String getTitlu(){
@@ -43,5 +48,20 @@ public class Carti {
     public void setSelect(CheckBox select){
         this.select=select;
     }
+
+    public Button getButton(){
+        return button;
+    }
+    public void setButton(Button button){
+        this.button=button;
+    }
+
+    public CheckBox getCheckbox(){
+        return checkbox;
+    }
+    public void setCheckbox(CheckBox checkbox){
+        this.checkbox=checkbox;
+    }
+
 
 }

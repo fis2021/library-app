@@ -1,4 +1,4 @@
-package lapp;
+package lapp.controllers;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,11 +8,10 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class AddRowOfBooks extends Application {
-
+public class MainHomepageLibrarian extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ListOfBooks.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomepageLibrarian.fxml"));
 
         Scene scene = new Scene(root);
         stage.initStyle(StageStyle.TRANSPARENT);
@@ -29,6 +28,5 @@ public class AddRowOfBooks extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 
 }

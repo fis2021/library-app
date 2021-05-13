@@ -1,18 +1,27 @@
-package lapp;
+package lapp.controllers;
+
+//WORKS
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ListOfBooks implements Initializable {
+public class HomepageClientController implements Initializable {
     @FXML
     private Label label;
 
@@ -28,6 +37,12 @@ public class ListOfBooks implements Initializable {
     @FXML private TableColumn<Carti, String> empAutor;
     @FXML private TableColumn<Carti, String> empEditura;
 
+    @FXML
+    private Button button;
+
+    @FXML
+    private Button buttonPastOrders;
+
 
     //observalble list to store data
     private final ObservableList<Carti> dataList = FXCollections.observableArrayList();
@@ -39,7 +54,10 @@ public class ListOfBooks implements Initializable {
         TableColumn EmpTitlu=new TableColumn("Titlu");
         TableColumn empAutor=new TableColumn("Nume autor");
         TableColumn empEditura=new TableColumn("Editura");
-        TableColumn selectCol = new TableColumn("Select");
+        TableColumn selectCol = new TableColumn("Select book");
+
+        button=new Button("Order");
+        buttonPastOrders=new Button("See past orders");
 
         tableview.getColumns().addAll(EmpTitlu,empAutor,empEditura,selectCol);
 
@@ -49,8 +67,9 @@ public class ListOfBooks implements Initializable {
         Carti c2=new Carti("Harap Alb","Ion Creanga","Paralela 45");
         Carti c3=new Carti("Luceafarul","Mihai Eminescu","Teora");
         Carti c4=new Carti("Plumb","George Bacovia","Paralela 45");
+        Carti c5=new Carti("Morometii","Marin Preda","Paralela 45");
 
-        dataList.addAll(c1,c2,c3,c4);
+        dataList.addAll(c1,c2,c3,c4,c5);
 
 
         EmpTitlu.setCellValueFactory(
@@ -110,5 +129,26 @@ public class ListOfBooks implements Initializable {
 
         // 5. Add sorted (and filtered) data to the table.
         tableview.setItems(sortedData);
+    }
+
+    public void open_pastOrders(ActionEvent actionEvent) throws IOException {
+        Parent registerParent = FXMLLoader.load(getClass().getClassLoader().getResource("seePastOrders.fxml"));
+        Scene registerScene = new Scene(registerParent);
+
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(registerScene);
+        window.show();
+
+    }
+
+    public void open_orderedBooks(ActionEvent actionEvent) throws IOException {
+        Parent registerParent = FXMLLoader.load(getClass().getClassLoader().getResource("seePastOrders.fxml"));
+        Scene registerScene = new Scene(registerParent);
+
+        Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(registerScene);
+        window.show();
     }
 }

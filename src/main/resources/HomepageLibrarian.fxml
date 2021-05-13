@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@stylesHP.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapp.controllers.HomepageLibrarianController">
+    <children>
+        <TableView fx:id="tableview" editable="true" layoutX="57.0" layoutY="106.0" prefHeight="358.0" prefWidth="582.0" />
+      <Button layoutX="57.0" layoutY="492.0" mnemonicParsing="false" onAction="#deleteSelectedRows" text="Delete books" />
+      <Button layoutX="149.0" layoutY="492.0" mnemonicParsing="false" onAction="#open_seeOrders" text="See orders" />
+    </children>
+
+</AnchorPane>
