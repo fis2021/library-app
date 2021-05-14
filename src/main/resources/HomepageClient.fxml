@@ -5,15 +5,24 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@stylesHP.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapp.controllers.HomepageClientController">
    <children>
-      <TableView fx:id="tableview" editable="true" layoutX="57.0" layoutY="106.0" prefHeight="358.0" prefWidth="582.0">
+      <TableView fx:id="tableview" editable="true" layoutX="57.0" layoutY="106.0" prefHeight="402.0" prefWidth="582.0">
 
       </TableView>
       <TextField fx:id="filterField" layoutX="115.0" layoutY="52.0" prefHeight="26.0" prefWidth="188.0" />
-      <Label layoutX="57.0" layoutY="52.0" prefHeight="26.0" prefWidth="58.0" text="Search" textFill="WHITE" />
-      <Button fx:id="button" layoutX="57.0" layoutY="490.0" mnemonicParsing="false" onAction="#open_orderedBooks" text="Order books" />
-      <Button fx:id="buttonPastOrders" layoutX="167.0" layoutY="490.0" mnemonicParsing="false" onAction="#open_pastOrders" text="See past orders" />
+      <Label layoutX="66.0" layoutY="52.0" prefHeight="26.0" prefWidth="40.0" text="Search" textAlignment="CENTER">
+         <font>
+            <Font name="Book Antiqua" size="13.0" />
+         </font></Label>
+      <Button fx:id="button" layoutX="57.0" layoutY="533.0" mnemonicParsing="false" onAction="#open_orderedBooks" text="Order books" />
+      <Button fx:id="buttonPastOrders" layoutX="161.0" layoutY="533.0" mnemonicParsing="false" onAction="#open_pastOrders" text="See past orders" />
+      <Button layoutX="758.0" layoutY="14.0" mnemonicParsing="false" onAction="#close_window" text="X" fx:id="x">
+         <font>
+            <Font name="Book Antiqua" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

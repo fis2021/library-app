@@ -28,7 +28,7 @@ public class SeePastOrdersController implements Initializable{
     @FXML private TableColumn<Carti, String> empStatus;
     @FXML private TableColumn<Carti, String> empDdl;
 
-    //observalble list to store data
+    //observable list to store data
     private final ObservableList<Carti> dataList = FXCollections.observableArrayList();
 
 

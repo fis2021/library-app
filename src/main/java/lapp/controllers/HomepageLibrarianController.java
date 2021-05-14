@@ -20,6 +20,8 @@ import java.util.ResourceBundle;
 public class HomepageLibrarianController implements Initializable {
     @FXML
     private Label label;
+    @FXML
+    private Button x;
 
     @FXML
     TableView tableview;
@@ -46,7 +48,7 @@ public class HomepageLibrarianController implements Initializable {
 
 
 
-    //observalble list to store data
+    //observable list to store data
     private final ObservableList<Carti> dataList = FXCollections.observableArrayList();
 
 
@@ -150,7 +152,7 @@ public class HomepageLibrarianController implements Initializable {
 //    }
 
     @FXML
-    public void deleteSelectedRows(javafx.event.ActionEvent actionEvent) {
+    public void deleteSelectedRows(ActionEvent event) {
         ObservableList<Carti> dataListRemove = FXCollections.observableArrayList();
 
         for(Carti bean : dataList){
@@ -163,6 +165,18 @@ public class HomepageLibrarianController implements Initializable {
         tableview.setItems(dataList);
     }
 
+    @FXML
+    public void goToAddBooks(ActionEvent event) throws IOException { // go to AddBooks
+        Parent addBookParent = FXMLLoader.load(getClass().getClassLoader().getResource("AddBooks.fxml"));
+        Scene addBookScene = new Scene(addBookParent);
+
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(addBookScene);
+        window.show();
+    }
+
+    @FXML
     public void open_seeOrders(ActionEvent actionEvent) throws IOException {
         Parent registerParent = FXMLLoader.load(getClass().getClassLoader().getResource("approveRejectOrder.fxml"));
         Scene registerScene = new Scene(registerParent);
@@ -171,5 +185,10 @@ public class HomepageLibrarianController implements Initializable {
 
         window.setScene(registerScene);
         window.show();
+    }
+
+    @FXML
+    private void close_window(ActionEvent event){
+        System.exit(0);
     }
 }

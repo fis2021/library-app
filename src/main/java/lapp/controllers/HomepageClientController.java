@@ -41,10 +41,11 @@ public class HomepageClientController implements Initializable {
     private Button button;
 
     @FXML
+    private Button x;
+
+    @FXML
     private Button buttonPastOrders;
 
-
-    //observalble list to store data
     private final ObservableList<Carti> dataList = FXCollections.observableArrayList();
 
 
@@ -131,6 +132,7 @@ public class HomepageClientController implements Initializable {
         tableview.setItems(sortedData);
     }
 
+    @FXML
     public void open_pastOrders(ActionEvent actionEvent) throws IOException {
         Parent registerParent = FXMLLoader.load(getClass().getClassLoader().getResource("seePastOrders.fxml"));
         Scene registerScene = new Scene(registerParent);
@@ -142,6 +144,7 @@ public class HomepageClientController implements Initializable {
 
     }
 
+    @FXML
     public void open_orderedBooks(ActionEvent actionEvent) throws IOException {
         Parent registerParent = FXMLLoader.load(getClass().getClassLoader().getResource("seePastOrders.fxml"));
         Scene registerScene = new Scene(registerParent);
@@ -150,5 +153,10 @@ public class HomepageClientController implements Initializable {
 
         window.setScene(registerScene);
         window.show();
+    }
+
+    @FXML
+    private void close_window(ActionEvent event){
+        System.exit(0);
     }
 }

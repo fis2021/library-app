@@ -10,7 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LApproveRejectOrderController implements Initializable {
+public class LibrarianApproveRejectOrderController implements Initializable {
 
     @FXML
     private Label label;
@@ -39,7 +39,7 @@ public class LApproveRejectOrderController implements Initializable {
     @FXML
     private Button buttonL;
 
-    //observalble list to store data
+    //observable list to store data
     private final ObservableList<CartiLibrarian> dataList = FXCollections.observableArrayList();
 
 
