@@ -1,4 +1,4 @@
-package lapp;
+package lapp.controllers;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;

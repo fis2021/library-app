@@ -44,6 +44,7 @@ public class CreateAccountController {
         }
     }
 
+    @FXML
     public void changeSceneLogin(ActionEvent event) throws IOException {   //goes to login scene
         Parent registerParent = FXMLLoader.load(getClass().getClassLoader().getResource("SignIn.fxml"));
         Scene registerScene = new Scene(registerParent);

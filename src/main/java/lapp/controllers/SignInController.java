@@ -32,26 +32,50 @@ public class SignInController {
 
     @FXML
     public void handleSignInAction(ActionEvent event){
-        try{
-            UserService.checkCredentials(usernameField.getText(), passwordField.getText());
-            logInMessage.setText("Login successful!");
+        if(usernameField.getText().equals("librarian1") || usernameField.getText().equals("librarian2") || usernameField.getText().equals("librarian3")){
+            try{
+                currentUser = new User("","","",usernameField.getText(),"");
+                UserService.checkCredentials(usernameField.getText(), passwordField.getText());
+                logInMessage.setText("Login successful!");
 
-            Parent homepageParent = load(getClass().getClassLoader().getResource("ListOfBooks.fxml"));
-            Scene homepageScene = new Scene(homepageParent);
+                Parent homepageParent = load(getClass().getClassLoader().getResource("HomepageLibrarian.fxml"));
+                Scene homepageScene = new Scene(homepageParent);
 
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(homepageScene);
-            window.show();
-        }catch(WrongPasswordException e){
-            logInMessage.setText(e.getMessage());
-        }catch(AccountDoesNotExistException e){
-            logInMessage.setText(e.getMessage());
-        }catch (IOException e) {
-            e.printStackTrace();
+                window.setScene(homepageScene);
+                window.show();
+            }catch(WrongPasswordException e){
+                logInMessage.setText(e.getMessage());
+            }catch(AccountDoesNotExistException e){
+                logInMessage.setText(e.getMessage());
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            try{
+                UserService.checkCredentials(usernameField.getText(), passwordField.getText());
+                logInMessage.setText("Login successful!");
+
+                Parent homepageParent = load(getClass().getClassLoader().getResource("HomepageClient.fxml"));
+                Scene homepageScene = new Scene(homepageParent);
+
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(homepageScene);
+                window.show();
+            }catch(WrongPasswordException e){
+                logInMessage.setText(e.getMessage());
+            }catch(AccountDoesNotExistException e){
+                logInMessage.setText(e.getMessage());
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
+    @FXML
     public void changeSceneRegister(ActionEvent event) throws IOException {   //goes to register scene
         Parent registerParent = FXMLLoader.load(getClass().getClassLoader().getResource("SignUp.fxml"));
         Scene registerScene = new Scene(registerParent);
@@ -62,8 +86,8 @@ public class SignInController {
         window.show();
     }
 
+
     public static User getCurrentUser() {
         return currentUser;
     }
-
 }

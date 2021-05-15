@@ -1,12 +1,23 @@
-C:\Users\Asus\library-app\src\main\java\lapp\controllers\HomepageClient.java
-C:\Users\Asus\library-app\src\main\java\lapp\exceptions\ShortPasswordException.java
-C:\Users\Asus\library-app\src\main\java\lapp\Main.java
-C:\Users\Asus\library-app\src\main\java\lapp\exceptions\AccountDoesNotExistException.java
-C:\Users\Asus\library-app\src\main\java\lapp\services\UserService.java
-C:\Users\Asus\library-app\src\main\java\lapp\controllers\SignInController.java
-C:\Users\Asus\library-app\src\main\java\lapp\exceptions\UsernameAlreadyExistsException.java
-C:\Users\Asus\library-app\src\main\java\lapp\exceptions\WrongPasswordException.java
-C:\Users\Asus\library-app\src\main\java\lapp\controllers\CreateAccountController.java
-C:\Users\Asus\library-app\src\main\java\lapp\model\User.java
-C:\Users\Asus\library-app\src\main\java\lapp\services\FileSystemService.java
-C:\Users\Asus\library-app\src\main\java\lapp\Starter.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\CreateAccountController.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\LibrarianAddBooksController.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\Starter.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\MainHomepageLibrarian.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\MainHomepageClient.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\exceptions\UsernameAlreadyExistsException.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\exceptions\AccountDoesNotExistException.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\HomepageLibrarianController.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\LibrarianApproveRejectOrderController.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\SeePastOrders.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\model\Book.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\SeePastOrdersController.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\model\User.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\Carti.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\CartiLibrarian.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\services\FileSystemService.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\Main.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\services\BookstoreService.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\exceptions\WrongPasswordException.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\services\UserService.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\HomepageClientController.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\exceptions\ShortPasswordException.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\SignInController.java
