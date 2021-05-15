@@ -2,27 +2,46 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@stylesHP.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapp.controllers.HomepageClientController">
+<AnchorPane prefHeight="650.0" prefWidth="950.0" stylesheets="@stylesHP.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapp.controllers.HomepageClientController">
    <children>
-      <TableView fx:id="tableview" editable="true" layoutX="57.0" layoutY="106.0" prefHeight="402.0" prefWidth="582.0">
-
-      </TableView>
-      <TextField fx:id="filterField" layoutX="115.0" layoutY="52.0" prefHeight="26.0" prefWidth="188.0" />
-      <Label layoutX="66.0" layoutY="52.0" prefHeight="26.0" prefWidth="40.0" text="Search" textAlignment="CENTER">
+      <TableView fx:id="tableview" editable="true" layoutX="57.0" layoutY="166.0" prefHeight="400.0" prefWidth="590.0">
+         <columns>
+            <TableColumn fx:id="titleColumn" prefWidth="173.88674545288086" text="Title" />
+            <TableColumn fx:id="authorColumn" prefWidth="129.50946044921875" text="Author" />
+            <TableColumn fx:id="pHouseColumn" prefWidth="145.81134033203125" text="Publishing house" />
+            <TableColumn fx:id="selectColumn" prefWidth="138.56602674126486" text="Select to order" />
+         </columns></TableView>
+      <TextField fx:id="filterField" layoutX="115.0" layoutY="117.0" prefHeight="26.0" prefWidth="188.0">
+         <font>
+            <Font name="Book Antiqua" size="13.0" />
+         </font></TextField>
+      <Label layoutX="66.0" layoutY="117.0" prefHeight="26.0" prefWidth="40.0" text="Search" textAlignment="CENTER">
          <font>
             <Font name="Book Antiqua" size="13.0" />
          </font></Label>
-      <Button fx:id="button" layoutX="57.0" layoutY="533.0" mnemonicParsing="false" onAction="#open_orderedBooks" text="Order books" />
-      <Button fx:id="buttonPastOrders" layoutX="161.0" layoutY="533.0" mnemonicParsing="false" onAction="#open_pastOrders" text="See past orders" />
-      <Button layoutX="758.0" layoutY="14.0" mnemonicParsing="false" onAction="#close_window" text="X" fx:id="x">
+      <Button fx:id="buttonOrderBooks" layoutX="57.0" layoutY="592.0" mnemonicParsing="false" onAction="#orderBooks" text="Order books">
+         <font>
+            <Font name="Book Antiqua" size="13.0" />
+         </font></Button>
+      <Button fx:id="buttonPastOrders" layoutX="161.0" layoutY="592.0" mnemonicParsing="false" onAction="#open_seePastOrders" text="See past orders">
+         <font>
+            <Font name="Book Antiqua" size="13.0" />
+         </font></Button>
+      <Button layoutX="908.0" layoutY="14.0" mnemonicParsing="false" onAction="#close_window" text="X" fx:id="x">
          <font>
             <Font name="Book Antiqua" size="13.0" />
          </font>
       </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="326.0" layoutY="27.0" prefHeight="40.0" prefWidth="298.0" text="Homepage" textAlignment="CENTER">
+         <font>
+            <Font name="Book Antiqua Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

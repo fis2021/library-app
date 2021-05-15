@@ -4,28 +4,45 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapp.controllers.HomepageLibrarianController">
    <children>
-      <Label layoutX="41.0" layoutY="31.0" prefHeight="40.0" prefWidth="200.0" text="Homepage" textAlignment="CENTER">
-         <font>
-            <Font name="Book Antiqua" size="24.0" />
-         </font></Label>
-      <TableView layoutX="41.0" layoutY="100.0" prefHeight="446.0" prefWidth="605.0">
+      <TableView fx:id="tableview" layoutX="41.0" layoutY="98.0" prefHeight="448.0" prefWidth="606.0">
         <columns>
-          <TableColumn prefWidth="160.30191802978516" text="Client Name" />
-          <TableColumn prefWidth="272.60374450683594" text="Books Ordered" />
-            <TableColumn prefWidth="168.4528579711914" text="Approve/Reject" />
+          <TableColumn fx:id="clientName" prefWidth="160.30191802978516" text="Client Name" />
+          <TableColumn fx:id="booksOrderedByClient" prefWidth="272.60374450683594" text="Books Ordered" />
+            <TableColumn fx:id="approveOrReject" prefWidth="168.4528579711914" text="Approve/Reject" />
         </columns>
       </TableView>
-      <Button layoutX="677.0" layoutY="113.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="148.0" text="Add book">
+      <Button layoutX="705.0" layoutY="483.0" mnemonicParsing="false" onAction="#goToAddBooks" prefHeight="62.0" prefWidth="149.0" text="Add book to database">
          <font>
             <Font name="Book Antiqua" size="13.0" />
          </font>
       </Button>
-      <Button layoutX="855.0" layoutY="18.0" mnemonicParsing="false" onAction="#close_window" text="X">
+      <Button layoutX="855.0" layoutY="18.0" mnemonicParsing="false" onAction="#close_window" text="X" fx:id="x">
+         <font>
+            <Font name="Book Antiqua" size="13.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="330.0" layoutY="24.0" prefHeight="40.0" prefWidth="298.0" text="Homepage" textAlignment="CENTER">
+         <font>
+            <Font name="Book Antiqua Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="filterField" layoutX="685.0" layoutY="149.0" prefHeight="26.0" prefWidth="188.0">
+         <font>
+            <Font name="Book Antiqua" size="13.0" />
+         </font>
+      </TextField>
+      <Label layoutX="705.0" layoutY="113.0" prefHeight="26.0" prefWidth="40.0" text="Search" textAlignment="CENTER">
+         <font>
+            <Font name="Book Antiqua" size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="704.0" layoutY="378.0" mnemonicParsing="false" onAction="#deleteSelectedRows" prefHeight="62.0" prefWidth="149.0" text="Remove from list">
          <font>
             <Font name="Book Antiqua" size="13.0" />
          </font>

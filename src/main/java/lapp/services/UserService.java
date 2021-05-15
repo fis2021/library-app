@@ -5,37 +5,22 @@ import lapp.exceptions.ShortPasswordException;
 import lapp.exceptions.UsernameAlreadyExistsException;
 import lapp.exceptions.WrongPasswordException;
 import lapp.model.User;
-import org.dizitart.no2.Nitrite;
-import org.dizitart.no2.objects.ObjectRepository;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
-import static lapp.services.FileSystemService.getPathToFile;
-
 public class UserService {
-
-    private static ObjectRepository<User> userRepository;
-
-    public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
-                .compressed()
-                .filePath(getPathToFile("library-app.db").toFile())
-                .openOrCreate("admin", "password");
-
-        userRepository = database.getRepository(User.class);
-    }
 
     public static void addUser(String fullName, String email, String phone, String username, String password) throws UsernameAlreadyExistsException, ShortPasswordException {
         checkUserDoesNotAlreadyExist(username);
         checkPasswordLongEnough(password);
-        userRepository.insert(new User( fullName, email, phone, username, encodePassword(username, password)));
+        DatabaseService.getUserRepository().insert(new User( fullName, email, phone, username, encodePassword(username, password)));
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
-        for (User user : userRepository.find()) {
+        for (User user : DatabaseService.getUserRepository().find()) {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException();
         }
@@ -48,7 +33,7 @@ public class UserService {
 
     public static void checkCredentials(String username, String password) throws WrongPasswordException, AccountDoesNotExistException {
         int found_username = 0;
-        for (User user : userRepository.find()) {
+        for (User user:DatabaseService.getUserRepository().find()) {
             if (Objects.equals(username, user.getUsername())) {
                 found_username = 1;
                 String user_pass_entered = encodePassword(username, password); //encrypt argument password
@@ -70,7 +55,7 @@ public class UserService {
 
         // This is the way a password should be encoded when checking the credentials
         return new String(hashedPassword, StandardCharsets.UTF_8)
-                .replace("\"", ""); //to be able to save in JSON format
+                .replace("\"", "");  //to be able to save in JSON format
     }
 
     private static MessageDigest getMessageDigest() {
@@ -82,5 +67,4 @@ public class UserService {
         }
         return md;
     }
-
 }

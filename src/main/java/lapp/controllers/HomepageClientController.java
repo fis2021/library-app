@@ -1,7 +1,5 @@
 package lapp.controllers;
 
-//WORKS
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -13,9 +11,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lapp.model.Book;
+import lapp.services.BookstoreService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,81 +26,66 @@ import java.util.ResourceBundle;
 
 public class HomepageClientController implements Initializable {
     @FXML
-    private Label label;
+    private TableView<Book> tableview;
 
     @FXML
-    TableView tableview;
-
-    ObservableList<Carti> data;
-
-
-    @FXML private TextField filterField;
-    @FXML private TableView<Carti> tableView;
-    @FXML private TableColumn<Carti, String> EmpTitlu;
-    @FXML private TableColumn<Carti, String> empAutor;
-    @FXML private TableColumn<Carti, String> empEditura;
+    private TableColumn<Book, String> titleColumn;
 
     @FXML
-    private Button button;
+    private TableColumn<Book, String> authorColumn;
 
     @FXML
-    private Button x;
+    private TableColumn<Book, String> pHouseColumn;
+
+    @FXML
+    private TableColumn<Book, String> selectColumn;
+
+    @FXML
+    private TextField filterField;
+
+    @FXML
+    private Button buttonOrderBooks;
 
     @FXML
     private Button buttonPastOrders;
 
-    private final ObservableList<Carti> dataList = FXCollections.observableArrayList();
+    @FXML
+    private Button x;
 
+    private final ObservableList<Book> dataList = FXCollections.observableArrayList();
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb){
 
-        TableColumn EmpTitlu=new TableColumn("Titlu");
-        TableColumn empAutor=new TableColumn("Nume autor");
-        TableColumn empEditura=new TableColumn("Editura");
-        TableColumn selectCol = new TableColumn("Select book");
+        tableview.getColumns().addAll(titleColumn,authorColumn,pHouseColumn,selectColumn);
 
-        button=new Button("Order");
-        buttonPastOrders=new Button("See past orders");
-
-        tableview.getColumns().addAll(EmpTitlu,empAutor,empEditura,selectCol);
+        for (Book book : BookstoreService.getBookRepository().find()) {
+                dataList.add(book);
+        }
 
 
-
-        Carti c1=new Carti("Amintiri din copilarie","Ion Creanga","Teora");
-        Carti c2=new Carti("Harap Alb","Ion Creanga","Paralela 45");
-        Carti c3=new Carti("Luceafarul","Mihai Eminescu","Teora");
-        Carti c4=new Carti("Plumb","George Bacovia","Paralela 45");
-        Carti c5=new Carti("Morometii","Marin Preda","Paralela 45");
-
-        dataList.addAll(c1,c2,c3,c4,c5);
-
-
-        EmpTitlu.setCellValueFactory(
-                new PropertyValueFactory<Carti,String>("titlu")
+        titleColumn.setCellValueFactory(
+                new PropertyValueFactory<>("Title")
         );
-        empAutor.setCellValueFactory(
-                new PropertyValueFactory<Carti,String>("autor")
+        authorColumn.setCellValueFactory(
+                new PropertyValueFactory<>("author")
         );
-        empEditura.setCellValueFactory(
-                new PropertyValueFactory<Carti,String>("editura")
+        pHouseColumn.setCellValueFactory(
+                new PropertyValueFactory<>("Publishing House")
         );
 
-        selectCol.setCellValueFactory(
-                new PropertyValueFactory<Carti,String>("select")
+        selectColumn.setCellValueFactory(
+                new PropertyValueFactory<>("Select")
         );
 
-        tableview.setItems(data);
+        tableview.setItems(dataList);
 
-
-
-
-        //Wrap the ObservableList in a FilteredList (initially display all data).
-        FilteredList<Carti> filteredData = new FilteredList<>(dataList, b -> true);
+        //Wrap the ObservableList in a FilteredList (initially display all dataList).
+        FilteredList<Book> filteredData = new FilteredList<>(dataList, b -> true);
 
         // 2. Set the filter Predicate whenever the filter changes.
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(carti -> {
+            filteredData.setPredicate(books -> {
                 // If filter text is empty, display all persons.
 
                 if (newValue == null || newValue.isEmpty()) {
@@ -107,14 +95,13 @@ public class HomepageClientController implements Initializable {
                 // Compare first name and last name of every person with filter text.
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (carti.getTitlu().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+                if (books.getNameOfBook().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
                     return true; // Filter matches first name.
-                } else if (carti.getAutor().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                } else if (books.getAuthor().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                     return true; // Filter matches last name.
-                } else if (carti.getEditura().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                } else if (books.getpHouse().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                     return true; // Filter matches last name.
-                }
-                else if (String.valueOf(carti.getEditura()).indexOf(lowerCaseFilter)!=-1)
+                } else if (String.valueOf(books.getpHouse()).indexOf(lowerCaseFilter)!=-1)
                     return true;
                 else
                     return false; // Does not match.
@@ -122,18 +109,18 @@ public class HomepageClientController implements Initializable {
         });
 
         // 3. Wrap the FilteredList in a SortedList.
-        SortedList<Carti> sortedData = new SortedList<>(filteredData);
+        SortedList<Book> sortedData = new SortedList<>(filteredData);
 
         // 4. Bind the SortedList comparator to the TableView comparator.
         // 	  Otherwise, sorting the TableView would have no effect.
         sortedData.comparatorProperty().bind(tableview.comparatorProperty());
 
-        // 5. Add sorted (and filtered) data to the table.
+        // 5. Add sorted (and filtered) dataList to the table.
         tableview.setItems(sortedData);
     }
 
     @FXML
-    public void open_pastOrders(ActionEvent actionEvent) throws IOException {
+    public void open_seePastOrders(ActionEvent actionEvent) throws IOException {
         Parent registerParent = FXMLLoader.load(getClass().getClassLoader().getResource("seePastOrders.fxml"));
         Scene registerScene = new Scene(registerParent);
 
@@ -145,14 +132,21 @@ public class HomepageClientController implements Initializable {
     }
 
     @FXML
-    public void open_orderedBooks(ActionEvent actionEvent) throws IOException {
-        Parent registerParent = FXMLLoader.load(getClass().getClassLoader().getResource("seePastOrders.fxml"));
+    public void orderBooks(ActionEvent actionEvent) throws IOException {
+        Parent registerParent = FXMLLoader.load(getClass().getClassLoader().getResource("OrderedBooks.fxml"));
         Scene registerScene = new Scene(registerParent);
 
         Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
         window.setScene(registerScene);
         window.show();
+
+        for (Book book : dataList) {
+            if(book.getSelect().isSelected()){
+                SignInController.getCurrentUser().addToOrder(book);
+                dataList.remove(book);
+            }
+        }
     }
 
     @FXML

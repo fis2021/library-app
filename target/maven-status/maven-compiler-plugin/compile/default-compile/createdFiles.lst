@@ -1,10 +1,6 @@
 lapp\services\UserService.class
-lapp\controllers\CartiLibrarian.class
-lapp\controllers\LibrarianApproveRejectOrderController.class
-lapp\controllers\Carti.class
 lapp\services\FileSystemService.class
 lapp\exceptions\WrongPasswordException.class
-lapp\controllers\MainHomepageLibrarian.class
 lapp\controllers\HomepageLibrarianController.class
 lapp\services\BookstoreService.class
 lapp\controllers\CreateAccountController.class
@@ -15,9 +11,7 @@ lapp\Main.class
 lapp\controllers\HomepageClientController.class
 lapp\controllers\LibrarianAddBooksController.class
 lapp\exceptions\AccountDoesNotExistException.class
-lapp\controllers\SeePastOrdersController.class
-lapp\controllers\SeePastOrders.class
+lapp\services\DatabaseService.class
 lapp\exceptions\ShortPasswordException.class
 lapp\model\Book.class
 lapp\controllers\Starter.class
-lapp\controllers\MainHomepageClient.class

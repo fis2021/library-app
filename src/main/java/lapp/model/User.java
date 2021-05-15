@@ -1,15 +1,19 @@
 package lapp.model;
 
+import javafx.scene.control.CheckBox;
 import org.dizitart.no2.objects.Id;
 
-public class User {
+import java.util.ArrayList;
+
+public class User{
     @Id
     private String fullName;
     private String email;
     private String phone;
-    private String username;
+    private String username; //this also defines the role
     private String password;
-    //private String role;
+    private ArrayList<Book> order;
+    private CheckBox select;
 
     public User(String fullName, String email, String phone, String username, String password) {
         this.fullName = fullName;
@@ -17,10 +21,7 @@ public class User {
         this.phone = phone;
         this.username = username;
         this.password = password;
-        /*if (username.equals("librarian1") || username.equals("librarian2") || username.equals("librarian3"))
-            this.role = "librarian";
-        else
-            this.role = "client";*/
+        this.select= new CheckBox();
     }
 
     public User(String username, String password) {
@@ -28,9 +29,7 @@ public class User {
         this.password = password;
     }
 
-    public User() {
-
-    }
+    public User() {}
 
     public String getFullName() {
         return fullName;
@@ -61,12 +60,10 @@ public class User {
         this.password = password;
     }
 
-    /*public String getRole() {
-        return role;
-    }
-    public void setRole(String role) {
-        this.role = role;
-    }*/
+    public ArrayList<Book> getOrder() { return order; }
+
+    public CheckBox getSelect(){ return select; }
+    public void setSelect(CheckBox select){ this.select=select;}
 
     /*@Override
     public boolean equals(Object o) {
@@ -77,8 +74,30 @@ public class User {
 
         if (!Objects.equals(username, user.username)) return false;
         if (!Objects.equals(password, user.password)) return false;
-        //return Objects.equals(role, user.role);
+        return Objects.equals(username, user.username);
     }*/
+
+    public void addToOrder(Book book){
+        order.add(book);
+    }
+
+    public boolean isInOrder(Book orderedBook){   //already exists in order
+        for(Book book : order){
+            if(book.getNameOfBook().equals(orderedBook.getNameOfBook())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void removeFromOrder(Book orderedBook){
+        for(Book book : order){
+            if(book.getNameOfBook().equals(orderedBook.getNameOfBook())){     //default show.equals not working!
+                order.remove(book);
+                break;
+            }
+        }
+    }
 
     @Override
     public int hashCode() {
