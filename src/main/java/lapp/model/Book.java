@@ -1,5 +1,6 @@
 package lapp.model;
 
+import javafx.scene.control.CheckBox;
 import org.dizitart.no2.objects.Id;
 
 public class Book {
@@ -9,12 +10,14 @@ public class Book {
     private String author;
     private String description;
     private String pHouse;
+    private CheckBox select;
 
     public Book(String name, String author, String description, String pHouse) {
         this.name = name;
         this.author = author;
         this.description = description;
         this.pHouse = pHouse;
+        this.select= new CheckBox();
     }
             
     public Book(){}
@@ -30,5 +33,8 @@ public class Book {
 
     public String getpHouse() { return pHouse; }
     public void setpHouse(String pHouse) { this.pHouse = pHouse; }
+
+    public CheckBox getSelect(){ return select; }
+    public void setSelect(CheckBox select){ this.select=select;}
 
 }

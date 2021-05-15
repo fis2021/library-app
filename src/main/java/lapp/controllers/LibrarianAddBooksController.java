@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import lapp.model.Book;
 import lapp.services.BookstoreService;
 
 import java.io.IOException;
@@ -39,7 +38,7 @@ public class LibrarianAddBooksController {
     @FXML
     private Label addingBookMessage;
 
-    private static Book currentBook;
+    //private static Book currentBook;
 
     @FXML
     public void openAddBook(Stage stage) throws Exception {

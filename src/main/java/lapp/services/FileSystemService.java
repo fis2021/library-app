@@ -1,5 +1,6 @@
 package lapp.services;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -10,5 +11,21 @@ public class FileSystemService {
 
     public static Path getPathToFile(String... path) {
         return APPLICATION_HOME_PATH.resolve(Paths.get(".", path));
+    }
+
+    public static Path getApplicationHomeFolder() {
+        return Paths.get(USER_FOLDER, APPLICATION_FOLDER);
+    }
+
+    public static void initDirectory() {
+        System.out.print("\nFILE ");
+        System.out.print("SYSTEM ");
+        System.out.print("SERVICE");
+        System.out.print(" - ");
+        System.out.print("Initialising ");
+        System.out.print(" Directory\n");
+        Path applicationHomePath = getApplicationHomeFolder();
+        if (!Files.exists(applicationHomePath))
+            applicationHomePath.toFile().mkdirs();
     }
 }

@@ -7,8 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import lapp.services.DatabaseService;
 import lapp.services.FileSystemService;
-import lapp.services.UserService;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -24,7 +24,7 @@ public class Main extends Application{
     @Override
     public void start(Stage stage) throws Exception {
         initDirectory();
-        UserService.initDatabase();
+        DatabaseService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Main.fxml"));
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);

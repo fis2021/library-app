@@ -32,9 +32,10 @@ public class SignInController {
 
     @FXML
     public void handleSignInAction(ActionEvent event){
+        currentUser = new User("","","",usernameField.getText(),passwordField.getText());
+
         if(usernameField.getText().equals("librarian1") || usernameField.getText().equals("librarian2") || usernameField.getText().equals("librarian3")){
             try{
-                currentUser = new User("","","",usernameField.getText(),"");
                 UserService.checkCredentials(usernameField.getText(), passwordField.getText());
                 logInMessage.setText("Login successful!");
 

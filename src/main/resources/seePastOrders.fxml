@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@stylesHP.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lapp.controllers.SeePastOrdersController">
     <children>
         <TableView fx:id="tableview" editable="true" layoutX="57.0" layoutY="106.0" prefHeight="358.0" prefWidth="582.0">
 
         </TableView>
+      <Button layoutX="758.0" layoutY="14.0" mnemonicParsing="false" onAction="#close_window" text="X" fx:id="x">
+         <font>
+            <Font name="Book Antiqua" size="13.0" />
+         </font>
+      </Button>
     </children>
 
 </AnchorPane>
