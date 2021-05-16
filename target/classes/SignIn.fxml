@@ -23,7 +23,7 @@
       </Label>
       <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="480.0">
          <children>
-            <TextField fx:id="usernameField" id="username" promptText="Username" styleClass="tf_box" HBox.hgrow="ALWAYS">
+            <TextField fx:id="usernameField" promptText="Username" styleClass="tf_box" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Book Antiqua" size="13.0" />
                </font>
@@ -36,7 +36,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="480.0">
          <children>
-            <PasswordField fx:id="passwordField" id="password" promptText="Password" styleClass="tf_box" HBox.hgrow="ALWAYS">
+            <PasswordField fx:id="passwordField" promptText="Password" styleClass="tf_box" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Book Antiqua" size="13.0" />
                </font>
@@ -47,7 +47,7 @@
             <Insets left="15.0" right="15.0" top="20.0" />
          </VBox.margin>
       </HBox>
-      <Button mnemonicParsing="false" id="registerButton" onAction="#handleSignInAction" prefHeight="37.0" prefWidth="80.0" styleClass="purple-btn" text="Sign In" textFill="WHITE" VBox.vgrow="ALWAYS">
+      <Button mnemonicParsing="false" onAction="#handleSignInAction" prefHeight="37.0" prefWidth="80.0" styleClass="purple-btn" text="Sign In" textFill="WHITE" VBox.vgrow="ALWAYS">
          <font>
             <Font name="Book Antiqua" size="15.0" />
          </font>
@@ -55,7 +55,7 @@
             <Insets left="200.0" top="30.0" />
          </VBox.margin>
       </Button>
-      <Label fx:id="logInMessage" id="registrationMessage" prefHeight="14.0" prefWidth="200.0" styleClass="error-msg" VBox.vgrow="ALWAYS">
+      <Label fx:id="logInMessage" prefHeight="14.0" prefWidth="200.0" styleClass="error-msg" VBox.vgrow="ALWAYS">
          <font>
             <Font name="Book Antiqua" size="13.0" />
          </font>
