@@ -10,8 +10,11 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
+import java.util.List;
+import org.dizitart.no2.objects.ObjectRepository;
 
 public class UserService {
+    private static ObjectRepository<User> userRepository;
 
     public static void addUser(String fullName, String email, String phone, String username, String password) throws UsernameAlreadyExistsException, ShortPasswordException {
         checkUserDoesNotAlreadyExist(username);
@@ -24,6 +27,10 @@ public class UserService {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException();
         }
+    }
+
+    public static List<User> getAllUsers(){
+        return userRepository.find().toList();
     }
 
     private static void checkPasswordLongEnough(String password) throws ShortPasswordException {
@@ -47,7 +54,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
