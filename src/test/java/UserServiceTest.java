@@ -1,14 +1,12 @@
-package lapp.services;
 
 import lapp.exceptions.ShortPasswordException;
 import lapp.exceptions.UsernameAlreadyExistsException;
 import lapp.model.User;
+import lapp.services.DatabaseService;
+import lapp.services.FileSystemService;
+import lapp.services.UserService;
 import org.apache.maven.shared.utils.io.FileUtils;
 import org.junit.jupiter.api.*;
-
-import javax.swing.*;
-
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.testfx.assertions.api.Assertions.assertThat;
