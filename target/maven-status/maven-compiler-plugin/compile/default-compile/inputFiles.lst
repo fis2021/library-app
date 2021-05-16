@@ -4,11 +4,10 @@ C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\control
 C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\exceptions\UsernameAlreadyExistsException.java
 C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\exceptions\AccountDoesNotExistException.java
 C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\HomepageLibrarianController.java
-C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\LibrarianApproveRejectOrderController.java
 C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\model\Book.java
 C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\SeePastOrdersController.java
 C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\model\User.java
-C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\controllers\CartiLibrarian.java
+C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\services\DatabaseService.java
 C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\services\FileSystemService.java
 C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\Main.java
 C:\FACULTATE anul 2\semestrul 2\FIS\Library_project_2\src\main\java\lapp\services\BookstoreService.java

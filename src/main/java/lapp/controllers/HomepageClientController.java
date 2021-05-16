@@ -59,6 +59,7 @@ public class HomepageClientController implements Initializable {
 
         tableview.getColumns().addAll(titleColumn,authorColumn,pHouseColumn,selectColumn);
 
+        if(BookstoreService.getBookRepository()!=null)
         for (Book book : BookstoreService.getBookRepository().find()) {
                 dataList.add(book);
         }

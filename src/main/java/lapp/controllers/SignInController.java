@@ -17,8 +17,6 @@ import lapp.services.UserService;
 
 import java.io.IOException;
 
-import static javafx.fxml.FXMLLoader.load;
-
 public class SignInController {
 
     @FXML
@@ -39,7 +37,7 @@ public class SignInController {
                 UserService.checkCredentials(usernameField.getText(), passwordField.getText());
                 logInMessage.setText("Login successful!");
 
-                Parent homepageParent = load(getClass().getClassLoader().getResource("HomepageLibrarian.fxml"));
+                Parent homepageParent = FXMLLoader.load(getClass().getClassLoader().getResource("HomepageLibrarian.fxml"));
                 Scene homepageScene = new Scene(homepageParent);
 
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -58,7 +56,7 @@ public class SignInController {
                 UserService.checkCredentials(usernameField.getText(), passwordField.getText());
                 logInMessage.setText("Login successful!");
 
-                Parent homepageParent = load(getClass().getClassLoader().getResource("HomepageClient.fxml"));
+                Parent homepageParent = FXMLLoader.load(getClass().getClassLoader().getResource("HomepageClient.fxml"));
                 Scene homepageScene = new Scene(homepageParent);
 
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
