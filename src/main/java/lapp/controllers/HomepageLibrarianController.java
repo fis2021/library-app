@@ -99,7 +99,7 @@ public class HomepageLibrarianController implements Initializable{
         tableview.setItems(sortedData);
     }
 
-    @FXML
+   /* @FXML
     public void deleteSelectedRows(ActionEvent event) {
         for(User user : dataList){
             if(user.getSelect().isSelected()){
@@ -107,7 +107,7 @@ public class HomepageLibrarianController implements Initializable{
             }
         }
         tableview.setItems(dataList);
-    }
+    }*/
 
     @FXML
     public void goToAddBooks(ActionEvent event) throws IOException { // go to AddBooks

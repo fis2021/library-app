@@ -8,10 +8,10 @@ import org.dizitart.no2.objects.ObjectRepository;
 import static lapp.services.FileSystemService.getPathToFile;
 
 public class DatabaseService {
-    private static Nitrite database;
+    public static Nitrite database;
 
-    private static ObjectRepository<User> userRepository;
-    private static ObjectRepository<Book> bookRepository;
+    public static ObjectRepository<User> userRepository;
+    public static ObjectRepository<Book> bookRepository;
 
     public static void initDatabase() {
         FileSystemService.initDirectory();
@@ -21,16 +21,24 @@ public class DatabaseService {
                 .openOrCreate("admin", "password");
         bookRepository = database.getRepository(Book.class);
         userRepository = database.getRepository(User.class);
+
+        UserService.initUserRepo(userRepository);
+        BookstoreService.initBookRepo(bookRepository);
     }
-    public static ObjectRepository<User> getUserRepository(){
+
+    public static ObjectRepository<User> getUserRepository() {
         return userRepository;
     }
 
-    public static ObjectRepository<Book> getBookRepository(){
+    public static ObjectRepository<Book> getBookRepository() {
         return bookRepository;
     }
 
     public static Nitrite getDatabase() {
         return database;
+    }
+
+    public static void closeDatabase() {
+        database.close();
     }
 }
