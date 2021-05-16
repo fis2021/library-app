@@ -5,13 +5,13 @@ import lapp.exceptions.ShortPasswordException;
 import lapp.exceptions.UsernameAlreadyExistsException;
 import lapp.exceptions.WrongPasswordException;
 import lapp.model.User;
+import org.dizitart.no2.objects.ObjectRepository;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Objects;
 import java.util.List;
-import org.dizitart.no2.objects.ObjectRepository;
+import java.util.Objects;
 
 public class UserService {
     private static ObjectRepository<User> userRepository;
@@ -54,7 +54,7 @@ public class UserService {
         }
     }
 
-    static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
