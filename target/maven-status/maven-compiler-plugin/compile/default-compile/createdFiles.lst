@@ -4,6 +4,7 @@ lapp\exceptions\WrongPasswordException.class
 lapp\controllers\HomepageLibrarianController.class
 lapp\services\BookstoreService.class
 lapp\controllers\CreateAccountController.class
+lapp\controllers\AddBooksController.class
 lapp\model\User.class
 lapp\controllers\SignInController.class
 lapp\exceptions\UsernameAlreadyExistsException.class
