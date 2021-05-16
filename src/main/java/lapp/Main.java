@@ -12,18 +12,17 @@ import lapp.services.FileSystemService;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 public class Main extends Application{
 
 
-    public static void main(String[] args){
-        launch(args);
-    }
+
 
     @Override
     public void start(Stage stage) throws Exception {
-        initDirectory();
+        //initDirectory();
         DatabaseService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Main.fxml"));
         Scene scene = new Scene(root);
@@ -35,9 +34,14 @@ public class Main extends Application{
         stage.show();
     }
 
-    private void initDirectory() {
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            applicationHomePath.toFile().mkdirs();
+//    private void initDirectory() {
+//        Path applicationHomePath = Paths.get(FileSystemService.USER_FOLDER, FileSystemService.APPLICATION_HOME_PATH);
+//        if (!Files.exists(applicationHomePath))
+//            applicationHomePath.toFile().mkdirs();
+//    }
+
+    public static void main(String[] args){
+        launch(args);
     }
+
 }
