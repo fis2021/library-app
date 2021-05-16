@@ -29,6 +29,7 @@ public class Main extends Application{
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
         stage.setTitle("Registration page");
+        stage.setTitle("Registration page");
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();

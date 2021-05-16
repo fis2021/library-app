@@ -1,6 +1,5 @@
 package lapp.model;
 
-import javafx.scene.control.CheckBox;
 import org.dizitart.no2.objects.Id;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ public class User{
     private String username; //this also defines the role
     private String password;
     private ArrayList<Book> order;
-    private CheckBox select;
+//    private CheckBox select;
 
     public User(String fullName, String email, String phone, String username, String password) {
         this.fullName = fullName;
@@ -21,7 +20,6 @@ public class User{
         this.phone = phone;
         this.username = username;
         this.password = password;
-        this.select= new CheckBox();
     }
 
     public User(String username, String password) {
@@ -62,8 +60,6 @@ public class User{
 
     public ArrayList<Book> getOrder() { return order; }
 
-    public CheckBox getSelect(){ return select; }
-    public void setSelect(CheckBox select){ this.select=select;}
 
     /*@Override
     public boolean equals(Object o) {

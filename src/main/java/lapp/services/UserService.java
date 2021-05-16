@@ -5,6 +5,7 @@ import lapp.exceptions.ShortPasswordException;
 import lapp.exceptions.UsernameAlreadyExistsException;
 import lapp.exceptions.WrongPasswordException;
 import lapp.model.User;
+import org.dizitart.no2.objects.ObjectRepository;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -12,15 +13,20 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
 public class UserService {
+    public static ObjectRepository<User> userRepository;
+
+    public static void initUserRepo(ObjectRepository<User> userRepository){
+        UserService.userRepository = userRepository;
+    }
 
     public static void addUser(String fullName, String email, String phone, String username, String password) throws UsernameAlreadyExistsException, ShortPasswordException {
         checkUserDoesNotAlreadyExist(username);
         checkPasswordLongEnough(password);
-        DatabaseService.getUserRepository().insert(new User( fullName, email, phone, username, encodePassword(username, password)));
+        userRepository.insert(new User( fullName, email, phone, username, encodePassword(username, password)));
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
-        for (User user : DatabaseService.getUserRepository().find()) {
+        for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException();
         }
@@ -33,7 +39,7 @@ public class UserService {
 
     public static void checkCredentials(String username, String password) throws WrongPasswordException, AccountDoesNotExistException {
         int found_username = 0;
-        for (User user:DatabaseService.getUserRepository().find()) {
+        for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername())) {
                 found_username = 1;
                 String user_pass_entered = encodePassword(username, password); //encrypt argument password
